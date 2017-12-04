@@ -5,8 +5,8 @@ class TodoitemsController < ApplicationController
 		@project = Project.find(params[:project_id])
 		@milestone = Milestone.find(params[:milestone_id])
 		@todoitem = @milestone.todoitems.create(todoitems_params)
-		redirect_to @project
-	end 
+		redirect_back(fallback_location: 'project')
+end 
 
 	def destroy 
 		if @todoitem.destroy
