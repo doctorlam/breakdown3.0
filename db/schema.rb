@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171204021118) do
+ActiveRecord::Schema.define(version: 20171204053423) do
 
   create_table "milestones", force: :cascade do |t|
     t.text "content"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20171204021118) do
     t.integer "milestone_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "completed_at"
     t.index ["milestone_id"], name: "index_todoitems_on_milestone_id"
   end
 

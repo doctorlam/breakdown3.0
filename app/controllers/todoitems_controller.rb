@@ -1,5 +1,5 @@
 class TodoitemsController < ApplicationController
-	
+	before_action :set_todoitem, except: [:create]
 
 	def create
 		@project = Project.find(params[:project_id])
@@ -9,7 +9,6 @@ class TodoitemsController < ApplicationController
 	end 
 
 	def destroy 
-		@todoitem = @milestone.todoitems.find(params[:id])
 		if @todoitem.destroy
 			flash[:success] = "Milestone Deleted"
 		else
@@ -18,9 +17,17 @@ class TodoitemsController < ApplicationController
 		redirect_to @project
 	end 
 
-
+	def complete 
+		@project = Project.find(params[:project_id])
+		@todoitem.update_attribute(:completed_at, Time.now)
+		redirect_to @project, notice: 'Booyah!'
+	end 
 private
 
+def set_todoitem
+		@todoitem = Todoitem.find(params[:id])
+
+end
 def todoitems_params 
 	params.require(:todoitem).permit(:description, :completed)
 end

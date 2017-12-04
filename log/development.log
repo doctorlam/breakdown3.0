@@ -6955,3 +6955,2146 @@ Processing by ProjectsController#edit as HTML
 Completed 200 OK in 56ms (Views: 53.5ms | ActiveRecord: 0.1ms)
 
 
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_milestones_on_project_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_milestones_on_project_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tasks_on_milestone_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tasks_on_milestone_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_todoitems_on_milestone_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_todoitems_on_milestone_id' AND type='index'
+[0m
+Started GET "/" for 127.0.0.1 at 2017-12-03 23:33:00 -0600
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /ChrisLam.rvm/gems/ruby-2.3.1/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /ChrisLam.rvm/gems/ruby-2.3.1/gems/railties-5.1.4/lib/rails/templates/rails/welcome/index.html.erb (4.1ms)
+Completed 200 OK in 21ms (Views: 9.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2017-12-03 23:33:04 -0600
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  Rendered projects/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 291ms (Views: 282.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:33:06 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.2ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered milestones/_form.html.erb (15.3ms)
+  Rendered projects/show.html.erb within layouts/application (36.5ms)
+Completed 200 OK in 82ms (Views: 75.7ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/projects/6/milestones" for 127.0.0.1 at 2017-12-03 23:33:13 -0600
+Processing by MilestonesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"U4vuYT372L26MQvuNKlO77p26/AnZJ+owO/qpY9MQ60tXlS1hwn8uv6TqNkxfqgjL2hZWZ+V/AXIWI/waUf5Qw==", "milestone"=>{"content"=>"asdffasd"}, "commit"=>"Create New Milestone", "project_id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "milestones" ("content", "project_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "asdffasd"], ["project_id", 6], ["created_at", "2017-12-04 05:33:13.115405"], ["updated_at", "2017-12-04 05:33:13.115405"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 6ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:33:13 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (5.1ms)
+  Rendered milestones/_form.html.erb (1.4ms)
+  Rendered projects/show.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 75ms (Views: 72.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/6/milestones/23" for 127.0.0.1 at 2017-12-03 23:33:17 -0600
+Processing by MilestonesController#show as HTML
+  Parameters: {"project_id"=>"6", "id"=>"23"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT  "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ? AND "milestones"."id" = ? LIMIT ?[0m  [["project_id", 6], ["id", 23], ["LIMIT", 1]]
+  Rendering milestones/show.html.erb within layouts/application
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered todoitems/_form.html.erb (10.5ms)
+  Rendered milestones/show.html.erb within layouts/application (14.5ms)
+Completed 200 OK in 71ms (Views: 65.0ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/projects/6/milestones/23/todoitems" for 127.0.0.1 at 2017-12-03 23:33:22 -0600
+Processing by TodoitemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qmOxuA+tOhVYdz95psoERN7l55h8b/qkUYTKCWEo2YNG0l9SF06MoWLR1fzYZcRvMlolt2YKaDrKbmEmYTnsmg==", "todoitem"=>{"description"=>"adfadsf"}, "commit"=>"Add Task", "project_id"=>"6", "milestone_id"=>"23"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT  "milestones".* FROM "milestones" WHERE "milestones"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "todoitems" ("description", "milestone_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "adfadsf"], ["milestone_id", 23], ["created_at", "2017-12-04 05:33:22.437485"], ["updated_at", "2017-12-04 05:33:22.437485"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 13ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:33:22 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.8ms)
+  Rendered milestones/_form.html.erb (1.6ms)
+  Rendered projects/show.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 72ms (Views: 69.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/6/milestones/23" for 127.0.0.1 at 2017-12-03 23:33:32 -0600
+Processing by MilestonesController#show as HTML
+  Parameters: {"project_id"=>"6", "id"=>"23"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mMilestone Load (0.3ms)[0m  [1m[34mSELECT  "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ? AND "milestones"."id" = ? LIMIT ?[0m  [["project_id", 6], ["id", 23], ["LIMIT", 1]]
+  Rendering milestones/show.html.erb within layouts/application
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of todoitems/_todoitem.html.erb [1 times] (0.6ms)
+  Rendered todoitems/_form.html.erb (1.8ms)
+  Rendered milestones/show.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 70ms (Views: 63.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/projects/6/milestones/23/todoitems" for 127.0.0.1 at 2017-12-03 23:33:34 -0600
+Processing by TodoitemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p4wj/PbWi3f+txKljWtd6Oz07nh8i0jdbJkVcih/MUJLPc0W7jU9w8QR+CDzxJ3DAEssV2bu2kP3c75dKG4EWw==", "todoitem"=>{"description"=>"asdfasf"}, "commit"=>"Add Task", "project_id"=>"6", "milestone_id"=>"23"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mMilestone Load (0.2ms)[0m  [1m[34mSELECT  "milestones".* FROM "milestones" WHERE "milestones"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "todoitems" ("description", "milestone_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "asdfasf"], ["milestone_id", 23], ["created_at", "2017-12-04 05:33:34.171693"], ["updated_at", "2017-12-04 05:33:34.171693"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 6ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:33:34 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.6ms)
+  Rendered milestones/_form.html.erb (1.7ms)
+  Rendered projects/show.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 50ms (Views: 47.7ms | ActiveRecord: 0.3ms)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddCompletedAtToTodoitems (20171204053423)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "todoitems" ADD "completed_at" datetime[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20171204053423"]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_milestones_on_project_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_milestones_on_project_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_tasks_on_milestone_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_tasks_on_milestone_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_todoitems_on_milestone_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_todoitems_on_milestone_id' AND type='index'
+[0m
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:39:03 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (10.6ms)
+  Rendered milestones/_form.html.erb (2.5ms)
+  Rendered projects/show.html.erb within layouts/application (28.5ms)
+Completed 200 OK in 81ms (Views: 69.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:39:06 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.2ms)
+  Rendered milestones/_form.html.erb (1.4ms)
+  Rendered projects/show.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 58ms (Views: 55.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/6/milestones/23" for 127.0.0.1 at 2017-12-03 23:39:12 -0600
+Processing by MilestonesController#show as HTML
+  Parameters: {"project_id"=>"6", "id"=>"23"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mMilestone Load (0.2ms)[0m  [1m[34mSELECT  "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ? AND "milestones"."id" = ? LIMIT ?[0m  [["project_id", 6], ["id", 23], ["LIMIT", 1]]
+  Rendering milestones/show.html.erb within layouts/application
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of todoitems/_todoitem.html.erb [2 times] (0.8ms)
+  Rendered todoitems/_form.html.erb (1.7ms)
+  Rendered milestones/show.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 52ms (Views: 46.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:39:51 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (197.3ms)
+  Rendered projects/show.html.erb within layouts/application (200.8ms)
+Completed 500 Internal Server Error in 208ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `todoitem' for #<#<Class:0x007fac83c1caf0>:0x007fac878005f8>
+Did you mean?  @todoitem):
+    2: 	<h4><%= milestone.content %> | <%= link_to "Break it down!", project_milestone_path(@project, milestone.id), class: 'btn btn-default' %></h4>
+    3: 	<ul>
+    4: 	<% for @todoitem in milestone.todoitems %>
+    5: 		<li><%= @todoitem.description %> | <%= link_to "Mark as Complete", complete_project_milestone_todoitem_path(@milestone, todoitem.id), method: :patch %></li>
+    6: 	<% end %>
+    7: 	</ul>
+    8: 
+  
+app/views/milestones/_milestone.html.erb:5:in `block in _app_views_milestones__milestone_html_erb__1170999922106164997_70189425018420'
+app/views/milestones/_milestone.html.erb:4:in `_app_views_milestones__milestone_html_erb__1170999922106164997_70189425018420'
+app/views/projects/show.html.erb:12:in `_app_views_projects_show_html_erb___4502002730947598342_70189492209660'
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:40:25 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (3.2ms)
+  Rendered projects/show.html.erb within layouts/application (6.5ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"complete", :controller=>"todoitems", :id=>"6", :milestone_id=>29, :project_id=>nil}, possible unmatched constraints: [:project_id]):
+    2: 	<h4><%= milestone.content %> | <%= link_to "Break it down!", project_milestone_path(@project, milestone.id), class: 'btn btn-default' %></h4>
+    3: 	<ul>
+    4: 	<% for @todoitem in milestone.todoitems %>
+    5: 		<li><%= @todoitem.description %> | <%= link_to "Mark as Complete", complete_project_milestone_todoitem_path(@milestone, @todoitem.id), method: :patch %></li>
+    6: 	<% end %>
+    7: 	</ul>
+    8: 
+  
+app/views/milestones/_milestone.html.erb:5:in `block in _app_views_milestones__milestone_html_erb__1170999922106164997_70189490248880'
+app/views/milestones/_milestone.html.erb:4:in `_app_views_milestones__milestone_html_erb__1170999922106164997_70189490248880'
+app/views/projects/show.html.erb:12:in `_app_views_projects_show_html_erb___4502002730947598342_70189473363320'
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:41:33 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.4ms)
+  Rendered milestones/_form.html.erb (1.1ms)
+  Rendered projects/show.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 57ms (Views: 53.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:41:55 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.2ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (117.3ms)
+  Rendered projects/show.html.erb within layouts/application (121.2ms)
+Completed 500 Internal Server Error in 128ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `complete_milestone_todoitem_path' for #<#<Class:0x007fac83c1caf0>:0x007fac8570b438>
+Did you mean?  complete_project_milestone_todoitem_path):
+    2: 	<h4><%= milestone.content %> | <%= link_to "Break it down!", project_milestone_path(@project, milestone.id), class: 'btn btn-default' %></h4>
+    3: 	<ul>
+    4: 	<% for @todoitem in milestone.todoitems %>
+    5: 		<li><%= @todoitem.description %> | <%= link_to "Mark as Complete", complete_milestone_todoitem_path(@milestone, @todoitem.id), method: :patch %></li>
+    6: 	<% end %>
+    7: 	</ul>
+    8: 
+  
+app/views/milestones/_milestone.html.erb:5:in `block in _app_views_milestones__milestone_html_erb__1170999922106164997_70189498367820'
+app/views/milestones/_milestone.html.erb:4:in `_app_views_milestones__milestone_html_erb__1170999922106164997_70189498367820'
+app/views/projects/show.html.erb:12:in `_app_views_projects_show_html_erb___4502002730947598342_70189474930440'
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:42:01 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (3.9ms)
+  Rendered projects/show.html.erb within layouts/application (8.2ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"complete", :controller=>"todoitems", :id=>"6", :milestone_id=>29, :project_id=>nil}, possible unmatched constraints: [:project_id]):
+    2: 	<h4><%= milestone.content %> | <%= link_to "Break it down!", project_milestone_path(@project, milestone.id), class: 'btn btn-default' %></h4>
+    3: 	<ul>
+    4: 	<% for @todoitem in milestone.todoitems %>
+    5: 		<li><%= @todoitem.description %> | <%= link_to "Mark as Complete", complete_project_milestone_todoitem_path(@milestone, @todoitem.id), method: :patch %></li>
+    6: 	<% end %>
+    7: 	</ul>
+    8: 
+  
+app/views/milestones/_milestone.html.erb:5:in `block in _app_views_milestones__milestone_html_erb__1170999922106164997_70189492246160'
+app/views/milestones/_milestone.html.erb:4:in `_app_views_milestones__milestone_html_erb__1170999922106164997_70189492246160'
+app/views/projects/show.html.erb:12:in `_app_views_projects_show_html_erb___4502002730947598342_70189473824400'
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:42:27 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.8ms)
+  Rendered projects/show.html.erb within layouts/application (6.2ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"complete", :controller=>"todoitems", :id=>"29", :milestone_id=>nil, :project_id=>"6"}, missing required keys: [:milestone_id]):
+    2: 	<h4><%= milestone.content %> | <%= link_to "Break it down!", project_milestone_path(@project, milestone.id), class: 'btn btn-default' %></h4>
+    3: 	<ul>
+    4: 	<% for @todoitem in milestone.todoitems %>
+    5: 		<li><%= @todoitem.description %> | <%= link_to "Mark as Complete", complete_project_milestone_todoitem_path(@project, @milestone, @todoitem.id), method: :patch %></li>
+    6: 	<% end %>
+    7: 	</ul>
+    8: 
+  
+app/views/milestones/_milestone.html.erb:5:in `block in _app_views_milestones__milestone_html_erb__1170999922106164997_70189474147040'
+app/views/milestones/_milestone.html.erb:4:in `_app_views_milestones__milestone_html_erb__1170999922106164997_70189474147040'
+app/views/projects/show.html.erb:12:in `_app_views_projects_show_html_erb___4502002730947598342_70189473746620'
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:42:40 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (3.0ms)
+  Rendered projects/show.html.erb within layouts/application (5.8ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    2: 	<h4><%= milestone.content %> | <%= link_to "Break it down!", project_milestone_path(@project, milestone.id), class: 'btn btn-default' %></h4>
+    3: 	<ul>
+    4: 	<% for @todoitem in milestone.todoitems %>
+    5: 		<li><%= @todoitem.description %> | <%= link_to "Mark as Complete", complete_project_milestone_todoitem_path(@project, @milestone.id, @todoitem.id), method: :patch %></li>
+    6: 	<% end %>
+    7: 	</ul>
+    8: 
+  
+app/views/milestones/_milestone.html.erb:5:in `block in _app_views_milestones__milestone_html_erb__1170999922106164997_70189462334640'
+app/views/milestones/_milestone.html.erb:4:in `_app_views_milestones__milestone_html_erb__1170999922106164997_70189462334640'
+app/views/projects/show.html.erb:12:in `_app_views_projects_show_html_erb___4502002730947598342_70189473377400'
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:42:50 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (4.4ms)
+  Rendered projects/show.html.erb within layouts/application (7.3ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"complete", :controller=>"todoitems", :id=>"29", :milestone_id=>nil, :project_id=>"6"}, missing required keys: [:milestone_id]):
+    2: 	<h4><%= milestone.content %> | <%= link_to "Break it down!", project_milestone_path(@project, milestone.id), class: 'btn btn-default' %></h4>
+    3: 	<ul>
+    4: 	<% for @todoitem in milestone.todoitems %>
+    5: 		<li><%= @todoitem.description %> | <%= link_to "Mark as Complete", complete_project_milestone_todoitem_path(@project, @milestone, @todoitem), method: :patch %></li>
+    6: 	<% end %>
+    7: 	</ul>
+    8: 
+  
+app/views/milestones/_milestone.html.erb:5:in `block in _app_views_milestones__milestone_html_erb__1170999922106164997_70189410828540'
+app/views/milestones/_milestone.html.erb:4:in `_app_views_milestones__milestone_html_erb__1170999922106164997_70189410828540'
+app/views/projects/show.html.erb:12:in `_app_views_projects_show_html_erb___4502002730947598342_70189459497260'
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:43:03 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (5.1ms)
+  Rendered milestones/_form.html.erb (1.4ms)
+  Rendered projects/show.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 54ms (Views: 51.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:47:09 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (11.1ms)
+  Rendered milestones/_form.html.erb (1.9ms)
+  Rendered projects/show.html.erb within layouts/application (27.1ms)
+Completed 200 OK in 75ms (Views: 62.4ms | ActiveRecord: 2.0ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/29/complete" for 127.0.0.1 at 2017-12-03 23:47:11 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"JOBqJ83dFrAshpkUva8IEfsalzs+xy+4yp72JE3TJrKtw6/r1USs+mzXO4fMod8m+kRYzqhIMl8/ooo48ferAg==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"29"}
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `set_todo_item' for #<TodoitemsController:0x007fac7fd8af08>):
+  
+activesupport (5.1.4) lib/active_support/callbacks.rb:413:in `block in make_lambda'
+activesupport (5.1.4) lib/active_support/callbacks.rb:178:in `block (2 levels) in halting_and_conditional'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.1.4) lib/active_support/callbacks.rb:179:in `block in halting_and_conditional'
+activesupport (5.1.4) lib/active_support/callbacks.rb:507:in `block in invoke_before'
+activesupport (5.1.4) lib/active_support/callbacks.rb:507:in `each'
+activesupport (5.1.4) lib/active_support/callbacks.rb:507:in `invoke_before'
+activesupport (5.1.4) lib/active_support/callbacks.rb:130:in `run_callbacks'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.4) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.4) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:124:in `process'
+/Users/ChrisLam/.rvm/gems/ruby-2.3.1/gems/actionview-5.1.4/lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started PATCH "/projects/6/milestones/23/todoitems/29/complete" for 127.0.0.1 at 2017-12-03 23:47:28 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"JOBqJ83dFrAshpkUva8IEfsalzs+xy+4yp72JE3TJrKtw6/r1USs+mzXO4fMod8m+kRYzqhIMl8/ooo48ferAg==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"29"}
+Completed 500 Internal Server Error in 80ms
+
+
+  
+NoMethodError (undefined method `set_todo_item' for #<TodoitemsController:0x007fac87441c00>):
+  
+activesupport (5.1.4) lib/active_support/callbacks.rb:413:in `block in make_lambda'
+activesupport (5.1.4) lib/active_support/callbacks.rb:178:in `block (2 levels) in halting_and_conditional'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.1.4) lib/active_support/callbacks.rb:179:in `block in halting_and_conditional'
+activesupport (5.1.4) lib/active_support/callbacks.rb:507:in `block in invoke_before'
+activesupport (5.1.4) lib/active_support/callbacks.rb:507:in `each'
+activesupport (5.1.4) lib/active_support/callbacks.rb:507:in `invoke_before'
+activesupport (5.1.4) lib/active_support/callbacks.rb:130:in `run_callbacks'
+actionpack (5.1.4) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `block in instrument'
+activesupport (5.1.4) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.1.4) lib/active_support/notifications.rb:166:in `instrument'
+actionpack (5.1.4) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.1.4) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+activerecord (5.1.4) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+actionpack (5.1.4) lib/abstract_controller/base.rb:124:in `process'
+/Users/ChrisLam/.rvm/gems/ruby-2.3.1/gems/actionview-5.1.4/lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/projects/6/milestones/23/todoitems/29/complete" for 127.0.0.1 at 2017-12-03 23:47:42 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/projects/6/milestones/23/todoitems/29/complete"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/projects/6/milestones/23/todoitems/29/" for 127.0.0.1 at 2017-12-03 23:47:45 -0600
+  
+AbstractController::ActionNotFound (The action 'show' could not be found for TodoitemsController):
+  
+actionpack (5.1.4) lib/abstract_controller/base.rb:119:in `process'
+/Users/ChrisLam/.rvm/gems/ruby-2.3.1/gems/actionview-5.1.4/lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/projects/6/milestones/23/t" for 127.0.0.1 at 2017-12-03 23:47:48 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/projects/6/milestones/23/t"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/projects/6/milestones/23/" for 127.0.0.1 at 2017-12-03 23:47:51 -0600
+Processing by MilestonesController#show as HTML
+  Parameters: {"project_id"=>"6", "id"=>"23"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT  "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ? AND "milestones"."id" = ? LIMIT ?[0m  [["project_id", 6], ["id", 23], ["LIMIT", 1]]
+  Rendering milestones/show.html.erb within layouts/application
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of todoitems/_todoitem.html.erb [2 times] (1.0ms)
+  Rendered todoitems/_form.html.erb (2.7ms)
+  Rendered milestones/show.html.erb within layouts/application (22.3ms)
+Completed 200 OK in 95ms (Views: 66.6ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/projects/6/" for 127.0.0.1 at 2017-12-03 23:47:59 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.2ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.7ms)
+  Rendered milestones/_form.html.erb (1.3ms)
+  Rendered projects/show.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 52ms (Views: 49.6ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/30/complete" for 127.0.0.1 at 2017-12-03 23:48:01 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"Nc8hCiIqaGRIvG5gknLwKkCdnwqI3GYzo92GiiuM5ee87OTGOrPSLgjtzPPjfCcdQcNQ/x5Te9RW4fqWl6hoVw==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"30"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `todoitem' for nil:NilClass):
+  
+app/controllers/todoitems_controller.rb:27:in `set_todoitem'
+Started GET "/projects/6/" for 127.0.0.1 at 2017-12-03 23:48:14 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.2ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (10.4ms)
+  Rendered milestones/_form.html.erb (1.8ms)
+  Rendered projects/show.html.erb within layouts/application (28.7ms)
+Completed 200 OK in 82ms (Views: 70.3ms | ActiveRecord: 2.2ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/29/complete" for 127.0.0.1 at 2017-12-03 23:48:15 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"S1a9lHyWkCNK0up4JClexFe9Ig78yGxpjY+ciStTmN7CdXhYZA8qaQqDSOtVJ4nzVuPt+2pHcY54s+CVl3cVbg==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"29"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `todoitems' for nil:NilClass):
+  
+app/controllers/todoitems_controller.rb:27:in `set_todoitem'
+Started PATCH "/projects/6/milestones/23/todoitems/29/complete" for 127.0.0.1 at 2017-12-03 23:48:45 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"S1a9lHyWkCNK0up4JClexFe9Ig78yGxpjY+ciStTmN7CdXhYZA8qaQqDSOtVJ4nzVuPt+2pHcY54s+CVl3cVbg==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"29"}
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:48:45.576540"], ["updated_at", "2017-12-04 05:48:45.577035"], ["id", 29]]
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to 
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 4.0ms)
+
+
+  
+ActionController::ActionControllerError (Cannot redirect to nil!):
+  
+app/controllers/todoitems_controller.rb:22:in `complete'
+Started GET "/projects/" for 127.0.0.1 at 2017-12-03 23:48:53 -0600
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  Rendered projects/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 53ms (Views: 48.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects/4" for 127.0.0.1 at 2017-12-03 23:48:55 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 4]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered milestones/_form.html.erb (18.8ms)
+  Rendered projects/show.html.erb within layouts/application (27.2ms)
+Completed 200 OK in 69ms (Views: 64.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:48:58 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.3ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.3ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (5.1ms)
+  Rendered milestones/_form.html.erb (1.5ms)
+  Rendered projects/show.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 57ms (Views: 54.1ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/29/complete" for 127.0.0.1 at 2017-12-03 23:48:59 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"TNDjNdAiydNHG3r7oZ9ZIR86XZX7QEIRIGSP8dfF0nDF8yb5yLtzmQdK2GjQkY4WHmSSYG3PX/bVWPPta+FfwA==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"29"}
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:48:59.605753"], ["updated_at", "2017-12-04 05:48:59.606366"], ["id", 29]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to 
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 3.1ms)
+
+
+  
+ActionController::ActionControllerError (Cannot redirect to nil!):
+  
+app/controllers/todoitems_controller.rb:22:in `complete'
+Started PATCH "/projects/6/milestones/23/todoitems/29/complete" for 127.0.0.1 at 2017-12-03 23:49:34 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"TNDjNdAiydNHG3r7oZ9ZIR86XZX7QEIRIGSP8dfF0nDF8yb5yLtzmQdK2GjQkY4WHmSSYG3PX/bVWPPta+FfwA==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"29"}
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:49:34.389014"], ["updated_at", "2017-12-04 05:49:34.389653"], ["id", 29]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 22ms (ActiveRecord: 4.1ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:49:34 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.2ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (3.5ms)
+  Rendered milestones/_form.html.erb (1.4ms)
+  Rendered projects/show.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 58ms (Views: 55.4ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/30/complete" for 127.0.0.1 at 2017-12-03 23:49:37 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"J/uhshY0HwNvSzXph0nHcucz8UDToehVO+hyQgoGD/eu2GR+Dq2lSS8al3r2RxBF5m0+tUUu9bLO1A5etiKCRw==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"30"}
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:49:37.988164"], ["updated_at", "2017-12-04 05:49:37.988584"], ["id", 30]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 6ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:49:37 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.5ms)
+  Rendered milestones/_form.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 46ms (Views: 44.2ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/29/complete" for 127.0.0.1 at 2017-12-03 23:49:39 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"YUilXZH52TNNjjrxTXfC2aEVmcRQ/Ib8DGYwfKAc4Jjoa2CRiWBjeQ3fmGI8eRXuoEtWMcZzmxv5WkxgHDhtKA==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"29"}
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:49:39.638471"], ["updated_at", "2017-12-04 05:49:39.639000"], ["id", 29]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 7ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:49:39 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.8ms)
+  Rendered milestones/_form.html.erb (1.3ms)
+  Rendered projects/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 45ms (Views: 42.3ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/30/complete" for 127.0.0.1 at 2017-12-03 23:49:40 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"2iKYg2QjYGoNtre9UgZWfGu4PmJ3O6gw8gcZDl7sbCpTAV1PfLraIE3nFS4jCIFLaubxl+G0tdcHO2US4sjhmg==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"30"}
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:49:40.161582"], ["updated_at", "2017-12-04 05:49:40.162240"], ["id", 30]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 6ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:49:40 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.9ms)
+  Rendered milestones/_form.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 58ms (Views: 55.3ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/29/complete" for 127.0.0.1 at 2017-12-03 23:49:40 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"2+YZloor1SmjbwAhEpsOqUr5sshjIRBfzXzkuWImtFxSxdxakrJvY+M+orJjldmeS6d9PfWuDbg4QJil3gI57A==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"29"}
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:49:40.594912"], ["updated_at", "2017-12-04 05:49:40.595411"], ["id", 29]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 6ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:49:40 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.5ms)
+  Rendered milestones/_form.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 48ms (Views: 45.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:51:58 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (0.8ms)
+  Rendered projects/show.html.erb within layouts/application (14.0ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 1.4ms)
+
+
+  
+SyntaxError (/Users/ChrisLam/breakdown3.0/app/views/milestones/_milestone.html.erb:17: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/ChrisLam/breakdown3.0/app/views/milestones/_milestone.html.erb:19: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/views/milestones/_milestone.html.erb:17: syntax error, unexpected keyword_ensure, expecting keyword_end
+app/views/milestones/_milestone.html.erb:19: syntax error, unexpected end-of-input, expecting keyword_end
+app/views/projects/show.html.erb:12:in `_app_views_projects_show_html_erb___4502002730947598342_70189488143440'
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:52:09 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.2ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (14.3ms)
+  Rendered milestones/_form.html.erb (2.2ms)
+  Rendered projects/show.html.erb within layouts/application (21.8ms)
+Completed 200 OK in 65ms (Views: 62.1ms | ActiveRecord: 1.2ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/30/complete" for 127.0.0.1 at 2017-12-03 23:52:12 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"VjT+coSKzTg4UgX2BO7tsz7x/U6vcG8nK/ebkElH4obfFzu+nBN3cngDp2V14DqEP68yuzn/csDey+eM9WNvNg==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"30"}
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:52:12.318376"], ["updated_at", "2017-12-04 05:52:12.318941"], ["id", 30]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 7ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:52:12 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.8ms)
+  Rendered milestones/_form.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 61ms (Views: 57.8ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/29/complete" for 127.0.0.1 at 2017-12-03 23:52:14 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"bOXQAYyyZirQlYCmSKYiYGoKIjVy9PdD6JlN4bMggO3lxhXNlCvcYJDEIjU5qPVXa1TtwOR76qQdpTH9DwQNXQ==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"29"}
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:52:14.863801"], ["updated_at", "2017-12-04 05:52:14.864388"], ["id", 29]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 6ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:52:14 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.3ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.9ms)
+  Rendered milestones/_form.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 48ms (Views: 45.2ms | ActiveRecord: 0.5ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/29/complete" for 127.0.0.1 at 2017-12-03 23:52:16 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"6h5WqdctnEFcRNHAREUGiUC/Jm672TKCwLXaqy97zGhjPZNlz7QmCxwVc1M1S9G+QeHpmy1WL2U1iaa3k19B2A==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"29"}
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:52:16.737963"], ["updated_at", "2017-12-04 05:52:16.738436"], ["id", 29]]
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 7ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:52:16 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.8ms)
+  Rendered milestones/_form.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 48ms (Views: 45.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/6/milestones/23" for 127.0.0.1 at 2017-12-03 23:52:29 -0600
+Processing by MilestonesController#show as HTML
+  Parameters: {"project_id"=>"6", "id"=>"23"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mMilestone Load (0.2ms)[0m  [1m[34mSELECT  "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ? AND "milestones"."id" = ? LIMIT ?[0m  [["project_id", 6], ["id", 23], ["LIMIT", 1]]
+  Rendering milestones/show.html.erb within layouts/application
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of todoitems/_todoitem.html.erb [2 times] (1.0ms)
+  Rendered todoitems/_form.html.erb (1.7ms)
+  Rendered milestones/show.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 53ms (Views: 48.8ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/projects/23/milestones/29/todoitems/23/complete" for 127.0.0.1 at 2017-12-03 23:52:31 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"v3YlL7/yLjaY6K4Gi4wtzUb+JzNGYDAixheevjnrrG02VeDjp2uUfNi5DJX6gvr6R6DoxtDvLcUzK+Kihc8h3Q==", "project_id"=>"23", "milestone_id"=>"29", "id"=>"23"}
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Todoitem with 'id'=23):
+  
+app/controllers/todoitems_controller.rb:28:in `set_todoitem'
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:52:38 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.5ms)
+  Rendered milestones/_form.html.erb (1.9ms)
+  Rendered projects/show.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 52ms (Views: 48.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:53:02 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.2ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.2ms)
+  Rendered milestones/_form.html.erb (1.4ms)
+  Rendered projects/show.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 48ms (Views: 45.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/6/milestones/23" for 127.0.0.1 at 2017-12-03 23:53:03 -0600
+Processing by MilestonesController#show as HTML
+  Parameters: {"project_id"=>"6", "id"=>"23"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mMilestone Load (0.4ms)[0m  [1m[34mSELECT  "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ? AND "milestones"."id" = ? LIMIT ?[0m  [["project_id", 6], ["id", 23], ["LIMIT", 1]]
+  Rendering milestones/show.html.erb within layouts/application
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of todoitems/_todoitem.html.erb [2 times] (0.6ms)
+  Rendered todoitems/_form.html.erb (2.0ms)
+  Rendered milestones/show.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 64ms (Views: 58.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/projects/6/milestones/23" for 127.0.0.1 at 2017-12-03 23:53:10 -0600
+Processing by MilestonesController#show as HTML
+  Parameters: {"project_id"=>"6", "id"=>"23"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT  "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ? AND "milestones"."id" = ? LIMIT ?[0m  [["project_id", 6], ["id", 23], ["LIMIT", 1]]
+  Rendering milestones/show.html.erb within layouts/application
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of todoitems/_todoitem.html.erb [2 times] (0.3ms)
+  Rendered todoitems/_form.html.erb (1.3ms)
+  Rendered milestones/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 50ms (Views: 46.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/6/milestones/23" for 127.0.0.1 at 2017-12-03 23:53:18 -0600
+Processing by MilestonesController#show as HTML
+  Parameters: {"project_id"=>"6", "id"=>"23"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT  "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ? AND "milestones"."id" = ? LIMIT ?[0m  [["project_id", 6], ["id", 23], ["LIMIT", 1]]
+  Rendering milestones/show.html.erb within layouts/application
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of todoitems/_todoitem.html.erb [2 times] (0.3ms)
+  Rendered todoitems/_form.html.erb (1.6ms)
+  Rendered milestones/show.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 50ms (Views: 46.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/6/milestones/23" for 127.0.0.1 at 2017-12-03 23:53:27 -0600
+Processing by MilestonesController#show as HTML
+  Parameters: {"project_id"=>"6", "id"=>"23"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT  "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ? AND "milestones"."id" = ? LIMIT ?[0m  [["project_id", 6], ["id", 23], ["LIMIT", 1]]
+  Rendering milestones/show.html.erb within layouts/application
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of todoitems/_todoitem.html.erb [2 times] (0.4ms)
+  Rendered todoitems/_form.html.erb (1.2ms)
+  Rendered milestones/show.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 50ms (Views: 46.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/6/milestones/23" for 127.0.0.1 at 2017-12-03 23:53:40 -0600
+Processing by MilestonesController#show as HTML
+  Parameters: {"project_id"=>"6", "id"=>"23"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mMilestone Load (0.2ms)[0m  [1m[34mSELECT  "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ? AND "milestones"."id" = ? LIMIT ?[0m  [["project_id", 6], ["id", 23], ["LIMIT", 1]]
+  Rendering milestones/show.html.erb within layouts/application
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of todoitems/_todoitem.html.erb [2 times] (0.3ms)
+  Rendered todoitems/_form.html.erb (1.2ms)
+  Rendered milestones/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 48ms (Views: 43.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/projects/6/milestones/23/todoitems" for 127.0.0.1 at 2017-12-03 23:53:50 -0600
+Processing by TodoitemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yPez9tTaS0QnRGGZOsmfnjXuq04CDMFgDavbh7tIE7NB1HY6zEPxDmcVwwpLx0ipNLBku5SD3If4l6ebB2yeAw==", "todoitem"=>{"description"=>"another"}, "commit"=>"Add Task", "project_id"=>"6", "milestone_id"=>"23"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT  "milestones".* FROM "milestones" WHERE "milestones"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "todoitems" ("description", "milestone_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "another"], ["milestone_id", 23], ["created_at", "2017-12-04 05:53:50.015156"], ["updated_at", "2017-12-04 05:53:50.015156"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 6ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:53:50 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (3.2ms)
+  Rendered milestones/_form.html.erb (1.6ms)
+  Rendered projects/show.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 51ms (Views: 49.0ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/31/complete" for 127.0.0.1 at 2017-12-03 23:53:51 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"GAamHUnBwvra0HsoW3ZosYICXDhoFL5gUgs+ORSVUBaRJWPRUVh4sJqB2bsqeL+Gg1yTzf6bo4enN0IlqLHdpg==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"31"}
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:53:51.798825"], ["updated_at", "2017-12-04 05:53:51.799243"], ["id", 31]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 6ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:53:51 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.8ms)
+  Rendered milestones/_form.html.erb (1.4ms)
+  Rendered projects/show.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 52ms (Views: 49.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:54:22 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.2ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.3ms)
+  Rendered milestones/_form.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 63ms (Views: 59.8ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/30/complete" for 127.0.0.1 at 2017-12-03 23:54:23 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"YN2lQlAbtgcvEdEutMCLGBA28wU/HtksY+9x/R9c13bp/mCOSIIMTW9Ac73FzlwvEWg88KmRxMuW0w3ho3haxg==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"30"}
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:54:23.880768"], ["updated_at", "2017-12-04 05:54:23.881323"], ["id", 30]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 6ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:54:23 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.0ms)
+  Rendered milestones/_form.html.erb (1.5ms)
+  Rendered projects/show.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 47ms (Views: 44.6ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/29/complete" for 127.0.0.1 at 2017-12-03 23:54:24 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"+dE3b95vTndo1sIUfD7PaCWBhiHKtoGny/h863DoiFFw8vKjxvb0PSiHYIcNMBhfJN9J1Fw5nEA+xAD3zMwF4Q==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"29"}
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:54:24.543616"], ["updated_at", "2017-12-04 05:54:24.544168"], ["id", 29]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 6ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:54:24 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.7ms)
+  Rendered milestones/_form.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 50ms (Views: 47.9ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/31/complete" for 127.0.0.1 at 2017-12-03 23:54:25 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"VTpWM7VDpyfY61RR3kGvrJ+Vhab7/oyBP9aMJe8zIADcGZP/rdodbZi69sKvT3ibnstKU21xkWbK6vA5UxetsA==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"31"}
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:54:25.092221"], ["updated_at", "2017-12-04 05:54:25.092727"], ["id", 31]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 6ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:54:25 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.9ms)
+  Rendered milestones/_form.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 47ms (Views: 45.1ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/30/complete" for 127.0.0.1 at 2017-12-03 23:54:41 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"dl6mcz+IJoFdcbVUV0mjFX2ZK0ZavRGg7n6m6PNnCJD/fWO/JxGcyx0gF8cmR3QifMfks8wyDEcbQtr0T0OFIA==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"30"}
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:54:41.323072"], ["updated_at", "2017-12-04 05:54:41.323592"], ["id", 30]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 6ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:54:41 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.0ms)
+  Rendered milestones/_form.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 50ms (Views: 47.5ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/31/complete" for 127.0.0.1 at 2017-12-03 23:54:42 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"qnMo7hUn5eH1e3P52ybBjJUhgm5RGxHG9mkP7eUvFygjUO0iDb5fq7Uq0WqqKBa7lH9Nm8eUDCEDVXPxWQuamA==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"31"}
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:54:42.130044"], ["updated_at", "2017-12-04 05:54:42.130554"], ["id", 31]]
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 7ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:54:42 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.2ms)
+  Rendered milestones/_form.html.erb (1.3ms)
+  Rendered projects/show.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 51ms (Views: 47.4ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/29/complete" for 127.0.0.1 at 2017-12-03 23:54:42 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"qAjIebsje7/GCE66cLqMKDNdvsawMlXTcJge2F5pXkQhKw21o7rB9YZZ7CkBtFsfMgNxMya9SDSFpGLE4k3T9A==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"29"}
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:54:42.963556"], ["updated_at", "2017-12-04 05:54:42.964142"], ["id", 29]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 7ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:54:42 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.0ms)
+  Rendered milestones/_form.html.erb (1.8ms)
+  Rendered projects/show.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 48ms (Views: 46.2ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" ORDER BY "todoitems"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/projects/6/milestones/23" for 127.0.0.1 at 2017-12-03 23:55:28 -0600
+Processing by MilestonesController#show as HTML
+  Parameters: {"project_id"=>"6", "id"=>"23"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mMilestone Load (0.2ms)[0m  [1m[34mSELECT  "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ? AND "milestones"."id" = ? LIMIT ?[0m  [["project_id", 6], ["id", 23], ["LIMIT", 1]]
+  Rendering milestones/show.html.erb within layouts/application
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of todoitems/_todoitem.html.erb [3 times] (0.4ms)
+  Rendered todoitems/_form.html.erb (1.5ms)
+  Rendered milestones/show.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 58ms (Views: 53.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/projects/6/milestones/23/todoitems" for 127.0.0.1 at 2017-12-03 23:55:31 -0600
+Processing by TodoitemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"DTvjRBgBxTY8dM75n4YOHZsYd3YLQu7spLqwNAXoETbhig2uAOJzggbSJHzhKc42d6e1WREnfHI/UBsbBfkkLw==", "todoitem"=>{"description"=>"not done yet"}, "commit"=>"Add Task", "project_id"=>"6", "milestone_id"=>"23"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT  "milestones".* FROM "milestones" WHERE "milestones"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "todoitems" ("description", "milestone_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "not done yet"], ["milestone_id", 23], ["created_at", "2017-12-04 05:55:31.253143"], ["updated_at", "2017-12-04 05:55:31.253143"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 6ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:55:31 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.1ms)
+  Rendered milestones/_form.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 62ms (Views: 59.4ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" ORDER BY "todoitems"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:56:47 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.1ms)
+  Rendered milestones/_form.html.erb (1.1ms)
+  Rendered projects/show.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 54ms (Views: 50.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:56:52 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.2ms)
+  Rendered milestones/_form.html.erb (2.6ms)
+  Rendered projects/show.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 53ms (Views: 50.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:56:53 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.9ms)
+  Rendered milestones/_form.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 53ms (Views: 50.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:57:01 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (9.5ms)
+  Rendered projects/show.html.erb within layouts/application (12.4ms)
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `complete?' for #<Todoitem:0x007fac7f7c2c60>
+Did you mean?  completed?
+               completed
+               completed_at?
+               completed=):
+    2: 	<h4><%= milestone.content %> | <%= link_to "Break it down!", project_milestone_path(@project, milestone.id), class: 'btn btn-default' %></h4>
+    3: 	<ul>
+    4: 	<% for @todoitem in milestone.todoitems %>
+    5: 	<% if @todoitem.complete? %>
+    6: 		<li style="opacity: 0.4; color: blue !important"><strike><%= @todoitem.description %> | <%= link_to "Mark as Complete", complete_project_milestone_todoitem_path(@project, milestone, @todoitem.id), method: :patch %></strike></li>
+    7: 	<% else %>
+    8: 		<li><%= @todoitem.description %> | <%= link_to "Mark as Complete", complete_project_milestone_todoitem_path(@project, milestone, @todoitem.id), method: :patch %></li>
+  
+app/views/milestones/_milestone.html.erb:5:in `block in _app_views_milestones__milestone_html_erb__1170999922106164997_70189492421260'
+app/views/milestones/_milestone.html.erb:4:in `_app_views_milestones__milestone_html_erb__1170999922106164997_70189492421260'
+app/views/projects/show.html.erb:12:in `_app_views_projects_show_html_erb___4502002730947598342_70189473132480'
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:57:05 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (3.5ms)
+  Rendered milestones/_form.html.erb (1.6ms)
+  Rendered projects/show.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 51ms (Views: 48.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:57:23 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.3ms)
+  Rendered milestones/_form.html.erb (2.3ms)
+  Rendered projects/show.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 48ms (Views: 45.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:57:25 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.0ms)
+  Rendered milestones/_form.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 49ms (Views: 45.9ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/32/complete" for 127.0.0.1 at 2017-12-03 23:57:26 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"/Z59FKQQBpcYifp4wTps9zeFsADU1TEHSZzS5WmRkqt0vbjYvIm83VjYWOuwNLvANtt/9UJaLOC8oK751bUfGw==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"32"}
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:57:26.898752"], ["updated_at", "2017-12-04 05:57:26.899359"], ["id", 32]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 7ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:57:26 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.7ms)
+  Rendered milestones/_form.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 47ms (Views: 45.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:57:37 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.9ms)
+  Rendered milestones/_form.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 49ms (Views: 45.8ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/29/complete" for 127.0.0.1 at 2017-12-03 23:57:39 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"WuGLzom8pyRBXTmG2tNpaIClB6xUD8b0/eKcY/3AkjHTwk4CkSUdbgEMmxWr3b5fgfvIWcKA2xMI3uB/QeQfgQ==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"29"}
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:57:39.991376"], ["updated_at", "2017-12-04 05:57:39.992096"], ["id", 29]]
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 7ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:57:39 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.9ms)
+  Rendered milestones/_form.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 50ms (Views: 47.6ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/30/complete" for 127.0.0.1 at 2017-12-03 23:57:41 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"m7OxFkj2L9N4eaN/VPYe1LK/oZmInf5WGZKWv7OhsjcSkHTaUG+VmTgoAewl+Mnjs+FubB4S47HsruqjD4U/hw==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"30"}
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:57:41.107695"], ["updated_at", "2017-12-04 05:57:41.108316"], ["id", 30]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 5ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:57:41 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.0ms)
+  Rendered milestones/_form.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 50ms (Views: 47.8ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/31/complete" for 127.0.0.1 at 2017-12-03 23:57:41 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"vKMo15tjBQVUgzZUpdol+IcdC3uk9fzTYPjdUTy2I6E1gO0bg/q/TxTSlMfU1PLPhkPEjjJ64TSVxKFNgJKuEQ==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"31"}
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:57:41.613864"], ["updated_at", "2017-12-04 05:57:41.614420"], ["id", 31]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 7ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:57:41 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.4ms)
+  Rendered milestones/_form.html.erb (1.4ms)
+  Rendered projects/show.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 49ms (Views: 47.0ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/32/complete" for 127.0.0.1 at 2017-12-03 23:57:42 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"4Lww8UcPZ6ADXTba5WS70SC/x8BXaj91Jad1vS8NSiBpn/U9X5bd6kMMlEmUamzmIeEINcHlIpLQmwmhkynHkA==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"32"}
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:57:42.272903"], ["updated_at", "2017-12-04 05:57:42.273473"], ["id", 32]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 6ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:57:42 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.9ms)
+  Rendered milestones/_form.html.erb (1.1ms)
+  Rendered projects/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 48ms (Views: 45.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:57:47 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (4.8ms)
+  Rendered milestones/_form.html.erb (1.4ms)
+  Rendered projects/show.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 52ms (Views: 49.1ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/29/complete" for 127.0.0.1 at 2017-12-03 23:57:49 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"RvxVzt+PcXAoc4whjM4qi5OmDwMlxP43MV4CNMXr/jvP35ACxxbLOmgiLrL9wP28kvjA9rNL49DEYn4oec9ziw==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"29"}
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:57:49.502322"], ["updated_at", "2017-12-04 05:57:49.502884"], ["id", 29]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 7ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:57:49 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.9ms)
+  Rendered milestones/_form.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 49ms (Views: 46.8ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/30/complete" for 127.0.0.1 at 2017-12-03 23:57:50 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"XRwXQUBgUV6gqkiGhmWwfAs3hDJogZAkns41jQzVxc7UP9KNWPnrFOD76hX3a2dLCmlLx/4OjcNr8kmRsPFIfg==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"30"}
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:57:50.604986"], ["updated_at", "2017-12-04 05:57:50.605524"], ["id", 30]]
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 7ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:57:50 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.1ms)
+  Rendered milestones/_form.html.erb (1.3ms)
+  Rendered projects/show.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 48ms (Views: 46.2ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/32/complete" for 127.0.0.1 at 2017-12-03 23:57:51 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"/kdZjwKnWYD4xZKgilrnDryvqtj0p9ZWvxKpHNlvxmN3ZJxDGj7jyriUMDP7VDA5vfFlLWIoy7FKLtUAZUtL0w==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"32"}
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:57:51.956445"], ["updated_at", "2017-12-04 05:57:51.956954"], ["id", 32]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 6ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:57:51 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.9ms)
+  Rendered milestones/_form.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 54ms (Views: 51.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:58:28 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (223.2ms)
+  Rendered projects/show.html.erb within layouts/application (226.4ms)
+Completed 500 Internal Server Error in 233ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `todoitem' for #<#<Class:0x007fac8703efb8>:0x007fac7e7af3c8>
+Did you mean?  @todoitem):
+    2: 	<h4><%= milestone.content %> | <%= link_to "Break it down!", project_milestone_path(@project, milestone.id), class: 'btn btn-default' %></h4>
+    3: 
+    4: 	<% for @todoitem in milestone.todoitems %>
+    5: 	<% if todoitem.completed? %>
+    6: 		<p style="opacity: 0.4; color: blue !important"><strike><%= @todoitem.description %> | <%= link_to "Mark as Complete", complete_project_milestone_todoitem_path(@project, milestone, @todoitem.id), method: :patch %></strike></p>
+    7: 	<% else %>
+    8: 		<p><%= @todoitem.description %> | <%= link_to "Mark as Complete", complete_project_milestone_todoitem_path(@project, milestone, @todoitem.id), method: :patch %></p>
+  
+app/views/milestones/_milestone.html.erb:5:in `block in _app_views_milestones__milestone_html_erb__1170999922106164997_70189416264500'
+app/views/milestones/_milestone.html.erb:4:in `_app_views_milestones__milestone_html_erb__1170999922106164997_70189416264500'
+app/views/projects/show.html.erb:12:in `_app_views_projects_show_html_erb___4502002730947598342_70189416590700'
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:58:41 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (0.9ms)
+  Rendered projects/show.html.erb within layouts/application (4.3ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/Users/ChrisLam/breakdown3.0/app/views/milestones/_milestone.html.erb:7: syntax error, unexpected keyword_else, expecting keyword_end
+'.freeze;	 else 
+         	     ^):
+  
+app/views/milestones/_milestone.html.erb:7: syntax error, unexpected keyword_else, expecting keyword_end
+app/views/projects/show.html.erb:12:in `_app_views_projects_show_html_erb___4502002730947598342_70189474436180'
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:59:28 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (3.6ms)
+  Rendered projects/show.html.erb within layouts/application (6.6ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.2ms)
+
+
+  
+ActionView::Template::Error (undefined method `completed?' for nil:NilClass):
+    1: <div class="milestones">
+    2: 	<h4><%= milestone.content %> | <%= link_to "Break it down!", project_milestone_path(@project, milestone.id), class: 'btn btn-default' %></h4>
+    3: 	<% if @todoitem.completed? %>
+    4: 
+    5: 	<% for @todoitem in milestone.todoitems %>
+    6: 		<p style="opacity: 0.4; color: blue !important"><strike><%= @todoitem.description %> | <%= link_to "Mark as Complete", complete_project_milestone_todoitem_path(@project, milestone, @todoitem.id), method: :patch %></strike></p>
+  
+app/views/milestones/_milestone.html.erb:3:in `_app_views_milestones__milestone_html_erb__1170999922106164997_70189490233660'
+app/views/projects/show.html.erb:12:in `_app_views_projects_show_html_erb___4502002730947598342_70189493554840'
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:59:42 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (3.5ms)
+  Rendered projects/show.html.erb within layouts/application (6.4ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.4ms)
+
+
+  
+ActionView::Template::Error (undefined method `todoitem' for nil:NilClass):
+    1: <div class="milestones">
+    2: 	<h4><%= milestone.content %> | <%= link_to "Break it down!", project_milestone_path(@project, milestone.id), class: 'btn btn-default' %></h4>
+    3: 	<% if @milestone.todoitem.completed? %>
+    4: 
+    5: 	<% for @todoitem in milestone.todoitems %>
+    6: 		<p style="opacity: 0.4; color: blue !important"><strike><%= @todoitem.description %> | <%= link_to "Mark as Complete", complete_project_milestone_todoitem_path(@project, milestone, @todoitem.id), method: :patch %></strike></p>
+  
+app/views/milestones/_milestone.html.erb:3:in `_app_views_milestones__milestone_html_erb__1170999922106164997_70189497624860'
+app/views/projects/show.html.erb:12:in `_app_views_projects_show_html_erb___4502002730947598342_70189488451000'
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:59:53 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.2ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.2ms)
+  Rendered milestones/_form.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 51ms (Views: 48.2ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/32/complete" for 127.0.0.1 at 2017-12-03 23:59:55 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"bnHc4LzKp4BqXrAiehDvin2Lwaup9sc2E0EU8sPujcvnUhkspFMdyioPErELHji9fNUOXj952tHmfWjuf8oAew==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"32"}
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 05:59:55.531753"], ["updated_at", "2017-12-04 05:59:55.532253"], ["id", 32]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 7ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-03 23:59:55 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.9ms)
+  Rendered milestones/_form.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 50ms (Views: 47.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-04 00:00:07 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (3.6ms)
+  Rendered milestones/_form.html.erb (1.3ms)
+  Rendered projects/show.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 54ms (Views: 51.2ms | ActiveRecord: 0.4ms)
+
+
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" ORDER BY "todoitems"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-04 00:01:38 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.3ms)
+  Rendered milestones/_form.html.erb (1.8ms)
+  Rendered projects/show.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 54ms (Views: 51.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-04 00:01:39 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.8ms)
+  Rendered milestones/_form.html.erb (1.6ms)
+  Rendered projects/show.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 55ms (Views: 52.9ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/32/complete" for 127.0.0.1 at 2017-12-04 00:01:40 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"dXxq6//96tQ7hMvP9/ACgx5a3w9+2rkcVXDYCL1gadb8X68n52RQnnvVaVyG/tW0HwQQ+uhVpPugTKQUAUTkZg==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"32"}
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 06:01:40.903509"], ["updated_at", "2017-12-04 06:01:40.903990"], ["id", 32]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 6ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-04 00:01:40 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.8ms)
+  Rendered milestones/_form.html.erb (1.3ms)
+  Rendered projects/show.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 54ms (Views: 50.9ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/31/complete" for 127.0.0.1 at 2017-12-04 00:01:42 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"OhdQ8q6QqRRwuY9WUsXR0jkCuDR59IFSTn5Wqe9qW2KzNJU+tgkTXjDoLcUjywblOFx3we97nLW7Qiq1U07W0g==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"31"}
+  [1m[36mTodoitem Load (0.4ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 06:01:42.112425"], ["updated_at", "2017-12-04 06:01:42.113172"], ["id", 31]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 7ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-04 00:01:42 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.2ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.5ms)
+  Rendered milestones/_form.html.erb (1.3ms)
+  Rendered projects/show.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 60ms (Views: 57.7ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/30/complete" for 127.0.0.1 at 2017-12-04 00:01:42 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"Z2M7zR7SpujS2bQBydCiI++PpqYvKJ3b98crRx/7y3ruQP4BBkscopKIFpK43nUU7tFpU7mngDwC+1dbo99Gyg==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"30"}
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 06:01:42.704639"], ["updated_at", "2017-12-04 06:01:42.705173"], ["id", 30]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 6ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-04 00:01:42 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.0ms)
+  Rendered milestones/_form.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 51ms (Views: 48.6ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/29/complete" for 127.0.0.1 at 2017-12-04 00:01:43 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"9t5V08B5Gc7bp16am2GUCJqNEFqsvqg7UWJ9AChOHjh//ZAf2OCjhJv2/Anqb0M/m9PfrzoxtdykXgEclGqTiA==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"29"}
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 06:01:43.366767"], ["updated_at", "2017-12-04 06:01:43.367306"], ["id", 29]]
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 7ms (ActiveRecord: 3.2ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-04 00:01:43 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.9ms)
+  Rendered milestones/_form.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 51ms (Views: 48.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-04 00:01:59 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.0ms)
+  Rendered milestones/_form.html.erb (1.8ms)
+  Rendered projects/show.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 53ms (Views: 50.9ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/32/complete" for 127.0.0.1 at 2017-12-04 00:02:02 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"HcKpZFIQBrcLV0xOwA/xbzziuoxatAoGuBTSwtwGV1KU4WyoSom8/UsG7t2xASZYPbx1ecw7F+FNKK7eYCLa4g==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"32"}
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 06:02:02.220941"], ["updated_at", "2017-12-04 06:02:02.221479"], ["id", 32]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 6ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-04 00:02:02 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.9ms)
+  Rendered milestones/_form.html.erb (1.3ms)
+  Rendered projects/show.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 50ms (Views: 47.8ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/29/complete" for 127.0.0.1 at 2017-12-04 00:02:03 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"pRPPe74DeFdjfetDUfavBQhSnCYoYSQxZPQJJGOYgC8sMAq3pprCHSMsSdAg+HgyCQxT077uOdaRyHU437wNnw==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"29"}
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 06:02:03.262408"], ["updated_at", "2017-12-04 06:02:03.262925"], ["id", 29]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 6ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-04 00:02:03 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.9ms)
+  Rendered milestones/_form.html.erb (1.1ms)
+  Rendered projects/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 59ms (Views: 56.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-04 00:02:20 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.2ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.2ms)
+  Rendered milestones/_form.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 57ms (Views: 53.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-04 00:02:39 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.1ms)
+  Rendered milestones/_form.html.erb (1.2ms)
+  Rendered projects/show.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 51ms (Views: 47.7ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/projects/6/milestones/23/todoitems/32/complete" for 127.0.0.1 at 2017-12-04 00:02:46 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"e48txpA0lkhDR8BgDVJOln1uyl4QqB0EimWoQtDRv2ryrOgKiK0sAgMWYvN8XJmhfDAFq4YnAON/WdRebPUy2g==", "project_id"=>"6", "milestone_id"=>"23", "id"=>"32"}
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 06:02:46.593948"], ["updated_at", "2017-12-04 06:02:46.594469"], ["id", 32]]
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/6
+Completed 302 Found in 7ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-04 00:02:46 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 23]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (1.8ms)
+  Rendered milestones/_form.html.erb (2.0ms)
+  Rendered projects/show.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 52ms (Views: 48.1ms | ActiveRecord: 0.4ms)
+
+

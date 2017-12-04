@@ -2,7 +2,11 @@
 	<h4><%= milestone.content %> | <%= link_to "Break it down!", project_milestone_path(@project, milestone.id), class: 'btn btn-default' %></h4>
 	<ul>
 	<% for @todoitem in milestone.todoitems %>
-		<li><%= @todoitem.description %></li>
+	<% if @todoitem.completed = nil %>
+		<li><%= @todoitem.description %> | <%= link_to "Mark as Complete", complete_project_milestone_todoitem_path(@project, milestone, @todoitem.id), method: :patch %></li>
+	<% else %>
+		<li style="opacity: 0.4"><strike><%= @todoitem.description %> | <%= link_to "Mark as Complete", complete_project_milestone_todoitem_path(@project, milestone, @todoitem.id), method: :patch %></strike></li>
+	<% end %>
 	<% end %>
 	</ul>
 
