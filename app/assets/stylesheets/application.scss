@@ -2,6 +2,100 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+a {
+	color: #332164;
+}
+header {
+	background: #523e86;
+	height: 120px;
+	display: flex;
+	align-items:center;
+}
+
+.nav-logo img {
+	height: 100px;
+	width: 100px;
+}
+.nav-logo {
+	padding-left: 20px;
+}
+.nav-buttons {
+	margin-left: auto;
+	padding-right: 20px;
+}
+.btn-reverse {
+	background: white !important;
+	color: #523e86 !important;
+	padding: 20px;
+	border-radius: 10px;
+}
+.project-buttons {
+	bottom: 0;
+}
+.project-buttons ul {
+	list-style-type: none;
+	margin-top: 280px;
+}
+.project-buttons li {
+	margin-bottom: 5px;
+	margin-left: -40px;
+
+}
+.container-fluid {
+	background: #efefef !important;
+	min-height: 100vh;
+}
+.all-projects-heading-container {
+	height: 80px;
+	color: #523e86 !important;
+	display: flex;
+	align-items: center;
+	padding-left: 20px;
+	padding-right: 20px;
+	background: #EBE8F3;
+}
+h1.all-projects {
+	left: 10;
+}
+.new-project-button {
+	margin-left: auto;
+}
+.index-card {
+	background: white;
+	height: 500px;
+	padding:10px;
+
+}
+.index-card h1 {
+	color: #523e86;
+	font-size: 24px;
+}
+.index-card h2 {
+	color: #851b22;
+	font-size: 20px;
+	margin-top: -8px;
+}
+.dark-underline {
+	border-bottom: 4px solid #1D0D48;
+	width: 30px;
+	margin-bottom: 10px;
+	padding-top: 10px;
+	margin: 0 auto;
+}
+.btn-primary {
+	background: #332164 !important;
+	border: #332164 !important;
+}
+.btn-default {
+	background: transparent !important; 
+	color: white !important;
+	border: 1px solid #332164 !important;
+}
+.edit-link {
+	font-size: 12px;
+	color: white !important;
+}
 .project-flex-container {
 	background: #523e86;
 	display: flex;
@@ -24,6 +118,12 @@
 	padding: 10px;
 	background: #d5cee8;
 	color: black;
+}
+.milestones h4 {
+	text-align: center;
+	font-size: 24px;
+	text-transform: uppercase;
+	color: #1D0D48;
 }
 .milestone-flex-container {
 	background: #523e86;

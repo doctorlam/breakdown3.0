@@ -11,6 +11,15 @@
   </head>
 
   <body>
+  	<header>
+  		<div class="nav-logo">
+  			<%= image_tag ("breakdown-nav-logo.png") %>
+  		</div>
+  		<div class="nav-buttons">
+  			<%= link_to "About Breakdown", projects_path, class: "btn-reverse" %>
+  			<%= link_to "Sign Up", projects_path, class: " btn-reverse" %>
+  		</div>
+  	</header>
     <%= yield %>
   </body>
 </html>
