@@ -1,5 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 .project-flex-container {
 	background: #523e86;
 	display: flex;
@@ -20,7 +22,7 @@
 }
 .milestones {
 	padding: 10px;
-	background: white;
+	background: #d5cee8;
 	color: black;
 }
 .milestone-flex-container {

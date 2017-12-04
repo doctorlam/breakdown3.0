@@ -1,14 +1,24 @@
 <div class="milestones">
 	<h4><%= milestone.content %> | <%= link_to "Break it down!", project_milestone_path(@project, milestone.id), class: 'btn btn-default' %></h4>
-	<ul>
-	<% for @todoitem in milestone.todoitems %>
-	<% if @todoitem.completed = nil %>
-		<li><%= @todoitem.description %> | <%= link_to "Mark as Complete", complete_project_milestone_todoitem_path(@project, milestone, @todoitem.id), method: :patch %></li>
+<table class="table table-border">
+
+<% for @todoitem in milestone.todoitems %>
+	<% if @todoitem.completed_at? %>
+	<tr>
+
+		<td style="width:30%"></td>	
+		<td style="opacity: 0.4; width: 70%"><strike><%= @todoitem.description %></strike></td>
+	</tr>
 	<% else %>
-		<li style="opacity: 0.4"><strike><%= @todoitem.description %> | <%= link_to "Mark as Complete", complete_project_milestone_todoitem_path(@project, milestone, @todoitem.id), method: :patch %></strike></li>
+	<tr>
+	<td style="width:30%"><%= link_to complete_project_milestone_todoitem_path(@project, milestone, @todoitem.id), method: :patch do %><i style = "color: #524084" class="fa fa-check"></i> <% end %></td>	
+		<td style="width: 70%"><%= @todoitem.description %></td> 
+			</tr>
+
 	<% end %>
 	<% end %>
-	</ul>
+
+</table>
 
 <%= link_to "Delete Milestone", project_milestone_path(@project, milestone.id), method: :delete, data: {confirm: "Are you sure?"} %>
 </div>
