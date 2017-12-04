@@ -1,0 +1,47 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+.project-flex-container {
+	background: #523e86;
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	justify-content: center;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+}
+.project-container {
+	align-self: center;
+	color: white;
+	background: #9F92C2;
+	padding: 20px;
+	min-height: 800px;
+	width: 80%;
+}
+.milestones {
+	padding: 10px;
+	background: white;
+	color: black;
+}
+.milestone-flex-container {
+	background: #523e86;
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	justify-content: center;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+}
+.milestone-flex-container h1, .milestone-flex-container h2, .project-flex-container h1, .project-flex-container h2 {
+	text-align: center;
+	color: white;
+}
+.milestone-task-container {
+	align-self: center;
+	color: white;
+	background: #9F92C2;
+	padding: 20px;
+	height: 400px;
+	width: 50%;
+}

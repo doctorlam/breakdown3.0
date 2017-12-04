@@ -1,0 +1,12 @@
+<div class="milestones">
+	<h4><%= milestone.content %> | <%= link_to "Break it down!", project_milestone_path(@project, milestone.id), class: 'btn btn-default' %></h4>
+	<ul>
+	<% for @todoitem in milestone.todoitems %>
+		<li><%= @todoitem.description %></li>
+	<% end %>
+	</ul>
+
+<%= link_to "Delete Milestone", project_milestone_path(@project, milestone.id), method: :delete, data: {confirm: "Are you sure?"} %>
+</div>
+<br>
+<br>
