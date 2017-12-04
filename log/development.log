@@ -21575,3 +21575,475 @@ puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
 puma (3.11.0) lib/puma/server.rb:438:in `process_client'
 puma (3.11.0) lib/puma/server.rb:302:in `block in run'
 puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2017-12-04 08:36:23 -0600
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  Rendered projects/index.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 100ms (Views: 97.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/path/to/font-awesome/css/font-awesome.min.css" for 127.0.0.1 at 2017-12-04 08:36:23 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/path/to/font-awesome/css/font-awesome.min.css"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/projects/5" for 127.0.0.1 at 2017-12-04 08:36:24 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.2ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 5]]
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 19]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 20]]
+  Rendered collection of milestones/_milestone.html.erb [2 times] (12.6ms)
+  Rendered milestones/_form.html.erb (1.5ms)
+  Rendered projects/show.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 77ms (Views: 71.4ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/projects/5/milestones/19" for 127.0.0.1 at 2017-12-04 08:36:27 -0600
+Processing by MilestonesController#show as HTML
+  Parameters: {"project_id"=>"5", "id"=>"19"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mMilestone Load (0.3ms)[0m  [1m[34mSELECT  "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ? AND "milestones"."id" = ? LIMIT ?[0m  [["project_id", 5], ["id", 19], ["LIMIT", 1]]
+  Rendering milestones/show.html.erb within layouts/application
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 19]]
+  Rendered collection of todoitems/_todoitem.html.erb [4 times] (0.4ms)
+  Rendered todoitems/_form.html.erb (2.0ms)
+  Rendered milestones/show.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 65ms (Views: 60.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2017-12-04 08:36:35 -0600
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  Rendered projects/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 59ms (Views: 56.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-04 08:36:37 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 25]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (3.0ms)
+  Rendered milestones/_form.html.erb (2.3ms)
+  Rendered projects/show.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 58ms (Views: 55.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2017-12-04 08:36:40 -0600
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  Rendered projects/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 56ms (Views: 53.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/projects/5/edit" for 127.0.0.1 at 2017-12-04 08:36:42 -0600
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering projects/edit.html.erb within layouts/application
+  Rendered projects/_form.html.erb (3.5ms)
+  Rendered projects/edit.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 54ms (Views: 51.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2017-12-04 08:36:43 -0600
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  Rendered projects/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 55ms (Views: 52.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2017-12-04 08:36:45 -0600
+Processing by ProjectsController#new as HTML
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/_form.html.erb (4.0ms)
+  Rendered projects/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 59ms (Views: 56.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2017-12-04 08:36:46 -0600
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  Rendered projects/index.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 56ms (Views: 54.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-04 08:36:47 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 25]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (4.1ms)
+  Rendered milestones/_form.html.erb (2.1ms)
+  Rendered projects/show.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 75ms (Views: 71.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/6/milestones/25" for 127.0.0.1 at 2017-12-04 09:34:15 -0600
+Processing by MilestonesController#show as HTML
+  Parameters: {"project_id"=>"6", "id"=>"25"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mMilestone Load (0.2ms)[0m  [1m[34mSELECT  "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ? AND "milestones"."id" = ? LIMIT ?[0m  [["project_id", 6], ["id", 25], ["LIMIT", 1]]
+  Rendering milestones/show.html.erb within layouts/application
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 25]]
+  Rendered collection of todoitems/_todoitem.html.erb [5 times] (0.3ms)
+  Rendered todoitems/_form.html.erb (1.7ms)
+  Rendered milestones/show.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 57ms (Views: 52.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/6" for 127.0.0.1 at 2017-12-04 09:34:18 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 6]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 25]]
+  Rendered collection of milestones/_milestone.html.erb [1 times] (2.5ms)
+  Rendered milestones/_form.html.erb (1.8ms)
+  Rendered projects/show.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 66ms (Views: 62.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2017-12-04 09:35:24 -0600
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  Rendered projects/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 61ms (Views: 58.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/projects/5" for 127.0.0.1 at 2017-12-04 09:35:29 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 5]]
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 19]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 20]]
+  Rendered collection of milestones/_milestone.html.erb [2 times] (4.1ms)
+  Rendered milestones/_form.html.erb (1.7ms)
+  Rendered projects/show.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 65ms (Views: 62.4ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/projects/5/milestones/19/todoitems/19/complete" for 127.0.0.1 at 2017-12-04 09:35:32 -0600
+Processing by TodoitemsController#complete as HTML
+  Parameters: {"authenticity_token"=>"uhgXQF7dbMQg2N3WsthzR0iBI34fN9NG0hfNrhK7r7UzO9KMRkTWjmCJf0XD1qRwSd/si4m4zqEnK7Gyrp8iBQ==", "project_id"=>"5", "milestone_id"=>"19", "id"=>"19"}
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT  "todoitems".* FROM "todoitems" WHERE "todoitems"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[33mUPDATE "todoitems" SET "completed_at" = ?, "updated_at" = ? WHERE "todoitems"."id" = ?[0m  [["completed_at", "2017-12-04 15:35:32.451221"], ["updated_at", "2017-12-04 15:35:32.451900"], ["id", 19]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/5
+Completed 302 Found in 6ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/projects/5" for 127.0.0.1 at 2017-12-04 09:35:32 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 5]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 19]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 20]]
+  Rendered collection of milestones/_milestone.html.erb [2 times] (4.0ms)
+  Rendered milestones/_form.html.erb (1.5ms)
+  Rendered projects/show.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 58ms (Views: 55.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects/path/to/font-awesome/css/font-awesome.min.css" for 127.0.0.1 at 2017-12-04 09:35:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/projects/path/to/font-awesome/css/font-awesome.min.css"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/projects/5/milestones/20" for 127.0.0.1 at 2017-12-04 09:36:37 -0600
+Processing by MilestonesController#show as HTML
+  Parameters: {"project_id"=>"5", "id"=>"20"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mMilestone Load (0.2ms)[0m  [1m[34mSELECT  "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ? AND "milestones"."id" = ? LIMIT ?[0m  [["project_id", 5], ["id", 20], ["LIMIT", 1]]
+  Rendering milestones/show.html.erb within layouts/application
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 20]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered todoitems/_form.html.erb (3.0ms)
+  Rendered milestones/show.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 66ms (Views: 60.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/projects/5/milestones/20/todoitems" for 127.0.0.1 at 2017-12-04 09:36:40 -0600
+Processing by TodoitemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Uc8xmc8g9MDn5N40021wHcfaW1/YADfSaOHQsxTAohl70LzGd3SfD9U1xODgXX278rRk00upT51aks672J33Uw==", "todoitem"=>{"description"=>"adsfadsfadsf"}, "commit"=>"Add Task", "project_id"=>"5", "milestone_id"=>"20"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mMilestone Load (0.2ms)[0m  [1m[34mSELECT  "milestones".* FROM "milestones" WHERE "milestones"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "todoitems" ("description", "milestone_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "adsfadsfadsf"], ["milestone_id", 20], ["created_at", "2017-12-04 15:36:40.502438"], ["updated_at", "2017-12-04 15:36:40.502438"]]
+  [1m[35m (0.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/5/milestones/20
+Completed 302 Found in 7ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/projects/5/milestones/20" for 127.0.0.1 at 2017-12-04 09:36:40 -0600
+Processing by MilestonesController#show as HTML
+  Parameters: {"project_id"=>"5", "id"=>"20"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT  "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ? AND "milestones"."id" = ? LIMIT ?[0m  [["project_id", 5], ["id", 20], ["LIMIT", 1]]
+  Rendering milestones/show.html.erb within layouts/application
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 20]]
+  Rendered collection of todoitems/_todoitem.html.erb [1 times] (0.3ms)
+  Rendered todoitems/_form.html.erb (1.5ms)
+  Rendered milestones/show.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 68ms (Views: 64.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/5/milestones/path/to/font-awesome/css/font-awesome.min.css" for 127.0.0.1 at 2017-12-04 09:36:40 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/projects/5/milestones/path/to/font-awesome/css/font-awesome.min.css"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/projects/5/milestones/20/todoitems" for 127.0.0.1 at 2017-12-04 09:36:43 -0600
+Processing by TodoitemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aiPFO5XfjRLjK9ZhY0iKiZygrsx5hvW3OJcLNTAwRzrjAAD3jUY3WKN6dPISRl2+nf5hOe8J6FDNq3cpjBTKig==", "todoitem"=>{"description"=>"adsfadsfdasfasdfasdfadsf"}, "commit"=>"Add Task", "project_id"=>"5", "milestone_id"=>"20"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT  "milestones".* FROM "milestones" WHERE "milestones"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "todoitems" ("description", "milestone_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "adsfadsfdasfasdfasdfadsf"], ["milestone_id", 20], ["created_at", "2017-12-04 15:36:43.268812"], ["updated_at", "2017-12-04 15:36:43.268812"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/5/milestones/20
+Completed 302 Found in 5ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/projects/5/milestones/20" for 127.0.0.1 at 2017-12-04 09:36:43 -0600
+Processing by MilestonesController#show as HTML
+  Parameters: {"project_id"=>"5", "id"=>"20"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT  "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ? AND "milestones"."id" = ? LIMIT ?[0m  [["project_id", 5], ["id", 20], ["LIMIT", 1]]
+  Rendering milestones/show.html.erb within layouts/application
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 20]]
+  Rendered collection of todoitems/_todoitem.html.erb [2 times] (0.3ms)
+  Rendered todoitems/_form.html.erb (1.2ms)
+  Rendered milestones/show.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 50ms (Views: 46.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/5/milestones/path/to/font-awesome/css/font-awesome.min.css" for 127.0.0.1 at 2017-12-04 09:36:43 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/projects/5/milestones/path/to/font-awesome/css/font-awesome.min.css"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/projects/5/milestones/20/todoitems" for 127.0.0.1 at 2017-12-04 09:36:46 -0600
+Processing by TodoitemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JsLUFr443zBF5n2csHZ/8dEqzHvZ6kwRQDlN+CLe9IOv4RHapqFlegW33w/BeKjG0HQDjk9lUfa1BTHknvp5Mw==", "todoitem"=>{"description"=>"ffff"}, "commit"=>"Add Task", "project_id"=>"5", "milestone_id"=>"20"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT  "milestones".* FROM "milestones" WHERE "milestones"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "todoitems" ("description", "milestone_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["description", "ffff"], ["milestone_id", 20], ["created_at", "2017-12-04 15:36:46.589093"], ["updated_at", "2017-12-04 15:36:46.589093"]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/projects/5/milestones/20
+Completed 302 Found in 8ms (ActiveRecord: 3.7ms)
+
+
+Started GET "/projects/5/milestones/20" for 127.0.0.1 at 2017-12-04 09:36:46 -0600
+Processing by MilestonesController#show as HTML
+  Parameters: {"project_id"=>"5", "id"=>"20"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mMilestone Load (0.2ms)[0m  [1m[34mSELECT  "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ? AND "milestones"."id" = ? LIMIT ?[0m  [["project_id", 5], ["id", 20], ["LIMIT", 1]]
+  Rendering milestones/show.html.erb within layouts/application
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 20]]
+  Rendered collection of todoitems/_todoitem.html.erb [3 times] (0.3ms)
+  Rendered todoitems/_form.html.erb (1.2ms)
+  Rendered milestones/show.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 66ms (Views: 61.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/projects/5/milestones/path/to/font-awesome/css/font-awesome.min.css" for 127.0.0.1 at 2017-12-04 09:36:46 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/projects/5/milestones/path/to/font-awesome/css/font-awesome.min.css"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.11.0) lib/puma/configuration.rb:225:in `call'
+puma (3.11.0) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.0) lib/puma/server.rb:438:in `process_client'
+puma (3.11.0) lib/puma/server.rb:302:in `block in run'
+puma (3.11.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/projects/5" for 127.0.0.1 at 2017-12-04 09:36:50 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 5]]
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 19]]
+  [1m[36mTodoitem Load (0.2ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 20]]
+  Rendered collection of milestones/_milestone.html.erb [2 times] (5.9ms)
+  Rendered milestones/_form.html.erb (1.4ms)
+  Rendered projects/show.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 63ms (Views: 59.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2017-12-04 09:37:00 -0600
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  Rendered projects/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 54ms (Views: 51.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/projects/5" for 127.0.0.1 at 2017-12-04 09:37:07 -0600
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering projects/show.html.erb within layouts/application
+  [1m[36mMilestone Load (0.1ms)[0m  [1m[34mSELECT "milestones".* FROM "milestones" WHERE "milestones"."project_id" = ?[0m  [["project_id", 5]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 19]]
+  [1m[36mTodoitem Load (0.1ms)[0m  [1m[34mSELECT "todoitems".* FROM "todoitems" WHERE "todoitems"."milestone_id" = ?[0m  [["milestone_id", 20]]
+  Rendered collection of milestones/_milestone.html.erb [2 times] (5.6ms)
+  Rendered milestones/_form.html.erb (2.1ms)
+  Rendered projects/show.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 66ms (Views: 62.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/projects" for 127.0.0.1 at 2017-12-04 09:37:10 -0600
+Processing by ProjectsController#index as HTML
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  Rendered projects/index.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 58ms (Views: 55.9ms | ActiveRecord: 0.2ms)
+
+
