@@ -8,24 +8,31 @@
 
 <div class="row">
 
-    <% @projects.each do |project| %>
+  <% @projects.each do |project| %>
      <div class="col-md-4">
-        <div class="index-card">
+        <%= link_to project do %>
+          <span>
+          <div class="index-card">
 
-        <h1><%= project.name %></h1>
-        <h2>due in: <%= time_ago_in_words(project.deadline) %></h2>
+            <h1><%= project.name %></h1>
+            <h2>Due in <%= time_ago_in_words(project.deadline) %></h2>
+            <span>
+            <div class="project-buttons">
+              <ul>
+              <!-- <li><%= link_to 'View Your Project', project, class: 'btn btn-primary' %></li> -->
+              <li><div class="edit-button">
+                <%= link_to 'EDIT YOUR PROJECT',  edit_project_path(project), class: 'btn btn-primary' %></div></li>
 
-        <div class="project-buttons">
-          <ul>
-          <li><%= link_to 'View Your Project', project, class: 'btn btn-primary' %></li>
-          <li><%= link_to 'Edit Your Project', edit_project_path(project), class: 'btn btn-primary'  %></li>
-          <li><%= link_to 'Delete Your Project', project, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %></li>
-      </tr>
-    </div><!--/project-buttons-->
-    </div><!--/index-card-->
+              <li><div class="delete-button"><%= link_to 'DELETE YOUR PROJECT', project, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %></div></li>
+              </ul>
+            </div><!--/project-buttons-->
+            </span>
+          </div><!--/index-card-->
+          </span>
+        <% end %>
     </div><!--/col-md-4-->
 
-    <% end %>
+  <% end %>
 </div>
 
 </div><!--/container-fluid-->
