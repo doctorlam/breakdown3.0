@@ -9,12 +9,13 @@ class TodoitemsController < ApplicationController
 end 
 
 	def destroy 
+
 		if @todoitem.destroy
 			flash[:success] = "Milestone Deleted"
 		else
 			flash[:error] = "Milestone item couldn't be deleted"
 		end 
-		redirect_to @project
+		redirect_back(fallback_location: 'project')
 	end 
 
 	def complete 

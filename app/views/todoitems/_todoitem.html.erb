@@ -1,2 +1,11 @@
-<li><%= todoitem.description %></li>
+
+<div class="subtasks-page">
+<li><%= todoitem.description %> &nbsp; <%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, project_milestone_todoitem_path(@project, @milestone, todoitem.id), method: :delete, data: {confirm: "Are you sure you want to delete this todo item?"} %></li>
+</div>
+			
+
+
+
+<!--<%= link_to "Delete Todo Item", project_milestone_todoitem_path(@project, @milestone, todoitem.id), method: :delete, data: {confirm: "Are you sure you want to delete this todo item?"} %>
+			<i class="fa fa-trash-o" aria-hidden="true"></i>-->
 

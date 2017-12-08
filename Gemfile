@@ -27,6 +27,7 @@ gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jquery-rails'
 gem 'font-awesome-sass'
 gem 'countdown'
+gem 'devise'
 
 group :production do 
   gem 'pg'

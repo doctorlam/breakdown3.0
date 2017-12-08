@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :projects do
   	resources :milestones do
   		resources :todoitems do 
@@ -9,5 +10,6 @@ Rails.application.routes.draw do
   	end
   end
   root 'projects#index'
-
+  get 'pages/about'
+  get 'pages/splash'
 end

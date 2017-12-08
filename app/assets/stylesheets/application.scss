@@ -128,6 +128,14 @@ h1.all-projects {
 	position: relative;
 }
 
+.table.no-border tr td, .table.no-border tr th {
+  border-width: 0;
+}
+
+.table.no-border {
+	margin-top: 0px;
+}
+
 .btn-create {
 	border-radius: 15px;
 	background: #332164 !important;
@@ -190,47 +198,117 @@ h1.all-projects {
 	min-height: 100vh;
 	margin: 0;
 	padding: 0;
+	text-align: left;
 }
+
+.show-page-titles {
+	text-align: left;
+}
+
 .project-container {
 	align-self: center;
-	color: white;
-	background: #9F92C2;
+	text-align: left;
+	color: black;
+	background: white;
 	padding: 20px;
 	min-height: 800px;
 	width: 80%;
+	box-shadow: 5px 5px 5px 5px rgba(0.4, 0.4, 0.4, 0.4);
 }
 .milestones {
 	padding: 10px;
-	background: #d5cee8;
+	background: white;
 	color: black;
 }
 .milestones h4 {
-	text-align: center;
+	text-align: left;
 	font-size: 24px;
-	text-transform: uppercase;
 	color: #1D0D48;
 }
+
+.milestones h4 span {
+	font-size: 18px;
+}
+
+.fa {
+	-moz-transition: all 0.1s;
+	-webkit-transition: all 0.1s;
+	transition: all 0.1s;
+}
+
+.fa:hover {
+	-moz-transform: scale(1.15);
+	-webkit-transform: scale(1.15);
+	transform: scale(1.15);
+}
+
 .milestone-flex-container {
 	background: #523e86;
 	display: flex;
 	flex-direction: column;
 	align-content: center;
-	justify-content: center;
+	/*justify-content: center;*/
 	height: 100vh;
 	margin: 0;
 	padding: 0;
 }
+
+
+.show-buttons {
+	text-align: left;
+	padding-left:50px;
+}
+
+.project-container h1 {
+	color: black;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.milestone-task-container h1{
+	color: black;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.milestone-task-container h1 span {
+	font-size: 30px;
+	font-weight: bold;
+	color: #523e86; /*dark purple*/
+}
+
+.show-subtasks {
+	padding-left: 40px;
+}
+
+.show-subtasks span {
+	opacity: 1;
+}
+
+.project-container h1 span {
+	font-size: 30px;
+	font-weight: bold;
+	color: #523e86; /*dark purple*/
+}
 .milestone-flex-container h1, .milestone-flex-container h2, .project-flex-container h1, .project-flex-container h2 {
-	text-align: center;
-	color: white;
+	text-align: left;
+	color: black;
 }
 .milestone-task-container {
 	align-self: center;
-	color: white;
-	background: #9F92C2;
+	color: black;
+	background: white;
 	padding: 20px;
 	min-height: 400px;
-	width: 50%;
+	width: 80%;
 }
 
-.edit-button {}
+.done-adding-tasks {
+	position: absolute;
+	bottom: 0;
+}
+
+.subtasks-page {
+	font-size: 20px;
+	padding-left: 30px;
+}

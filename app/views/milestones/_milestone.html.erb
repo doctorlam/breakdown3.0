@@ -1,31 +1,49 @@
 <div class="milestones">
-	<h4><%= milestone.content %>
-		<div class="dark-underline"></div>
+	<ul>
+		<li><h4><%= milestone.content %>
+			<span><%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, project_milestone_path(@project, milestone.id), method: :delete, data: {confirm: "Are you sure you want to delete this milestone?"} %></span>
+		</h4></li>
+	</ul>
+<!--<div class="delete-milestone">
+	<%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, project_milestone_path(@project, milestone.id), method: :delete, data: {confirm: "Are you sure you want to delete this milestone?"} %>
+</div>-->
+		<!--<div class="dark-underline"></div>
 
-		<br><%= link_to "Break it down!", project_milestone_path(@project, milestone.id), class: 'btn btn-primary' %></h4>
-<table class="table table-border">
+		<br><%= link_to "Break it down!", project_milestone_path(@project, milestone.id), class: 'btn btn-primary' %>-->
+
+<div class="show-subtasks">
+<table class="table no-border">
 
 <% for @todoitem in milestone.todoitems %>
 	<% if @todoitem.completed_at? %>
-	<tr>
 
-		<td style="width:20%"><i style = "color: #524084; opacity: 0.4;" class="fa fa-check"></i></td>	
-		<td style="opacity: 0.4; width: 70%"><strike><%= @todoitem.description %></strike></td>
-	</tr>
+		<tr>
+			<td style="width:5%"><i style = "color: #524084; opacity: 0.4;" class="fa fa-check-square"></i></td>	
+			<td style="opacity: 0.4; width: 90%"><strike><%= @todoitem.description %></strike>
+				<span><%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, project_milestone_todoitem_path(@project, milestone, @todoitem.id), method: :delete, data: {confirm: "Are you sure you want to delete this todo item?"} %></span>
+			</td>
+		</tr>
+
 	<% else %>
-	<tr>
-	<td style="width:20%"><%= link_to complete_project_milestone_todoitem_path(@project, milestone, @todoitem.id), method: :patch do %><i style = "color: #524084" class="fa fa-check"></i> <% end %></td>	
-		<td style="width: 70%"><%= @todoitem.description %></td> 
-			</tr>
+		<tr>
+		<td style="width:5%"><%= link_to complete_project_milestone_todoitem_path(@project, milestone, @todoitem.id), method: :patch do %><i style = "color: #524084" class="fa fa-square-o"></i> <% end %></td>	
+			<td style="width: 90%"><%= @todoitem.description %>
+				<%= link_to '<i class="fa fa-trash-o" aria-hidden="true"></i>'.html_safe, project_milestone_todoitem_path(@project, milestone, @todoitem.id), method: :delete, data: {confirm: "Are you sure you want to delete this todo item?"} %>
+			</td> 
+		</tr>
 
 	<% end %>
 	<% end %>
 
 </table>
-	<%= link_to "Delete Milestone", project_milestone_path(@project, milestone.id), method: :delete, data: {confirm: "Are you sure you want to delete this milestone?"} %>
-			<i class="fa fa-trash-o" aria-hidden="true"></i>
+</div>
 
+
+	<div class="show-buttons">
+		<%= link_to "+Add Subtasks", project_milestone_path(@project, milestone.id) %>
+	</div>
+
+		<!--<%= link_to "Delete Milestone", project_milestone_path(@project, milestone.id), method: :delete, data: {confirm: "Are you sure you want to delete this milestone?"} %>
+			<i class="fa fa-trash-o" aria-hidden="true"></i>-->
 
 </div>
-<br>
-<br>

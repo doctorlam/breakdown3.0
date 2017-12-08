@@ -16,7 +16,14 @@
 
             <h1><%= project.name %></h1>
             <h2>Due in <%= time_ago_in_words(project.deadline) %></h2>
+              <ul>
+                  <% for @milestone in project.milestones %>
+                    <li><%= @milestone.content %></li>
+                  <% end %>
+
+                </ul>
             <span>
+            
             <div class="project-buttons">
               <ul>
               <!-- <li><%= link_to 'View Your Project', project, class: 'btn btn-primary' %></li> -->
