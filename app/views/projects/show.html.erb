@@ -1,13 +1,13 @@
 <div class="project-flex-container">
-<p id="notice"><%= notice %></p>
+<!--<p id="notice"><%= notice %></p>-->
 	<div class="project-container">
 
 <div class="show-page-titles">
-  <h1>PROJECT: <span><%= @project.name %></span> <%= link_to 'Edit', edit_project_path(@project), class:'edit-link' %></h1> 
+  <h1>PROJECT: <span>&nbsp; &nbsp;<%= @project.name %></span> <%= link_to 'Edit', edit_project_path(@project), class:'edit-link' %></h1> 
 </div>
 
   <h1>DEADLINE:
-  <span><%= time_ago_in_words(@project.deadline) %></span></h1>
+  &nbsp; is due in <span><%= time_ago_in_words(@project.deadline) %></span> on <span><%= @project.deadline %></span></h1>
 
 	<%= render @project.milestones %>
 	<%= render "milestones/form" %>

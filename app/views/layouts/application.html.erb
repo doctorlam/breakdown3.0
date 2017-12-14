@@ -6,6 +6,7 @@
 
     <%= csrf_meta_tags %>
 
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -16,15 +17,27 @@
   			<%= link_to image_tag("breakdown-nav-logo.png"), root_path %>
   		</div>
 
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-
   		<div class="nav-buttons">
-        <%= link_to "Splash Page Here", pages_splash_url, class: "btn-reverse" %>
-  			<%= link_to "About Breakdown", pages_about_url, class: "btn-reverse" %>
-  			<%= link_to "Sign Up", new_user_registration_url, class: " btn-reverse" %>
+        <% if user_signed_in? %>
+        Logged in as <strong><%= current_user.email %></strong>
+        <%= link_to 'See Projects', projects_path, class: " btn-reverse" %>
+        <%= link_to 'Edit Profile', edit_user_registration_path, class: " btn-reverse" %>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, class: " btn-reverse" %>
+        <% else %>
+        <%= link_to "Sign Up", new_user_registration_path, class: " btn-reverse" %>
+        <%= link_to "Login", new_user_session_path, class: " btn-reverse" %>
+<% end %>
   		</div>
   	</header>
+
+
+<% if notice %>
+  <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+    
     <%= yield %>
   </body>
 </html>

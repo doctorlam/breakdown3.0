@@ -13,6 +13,54 @@ header {
 	align-items:center;
 }
 
+.breakdown-text {
+	/*width: 70%;*/
+	text-align: left;
+	/*margin: auto;*/
+	font-size: 30px;
+}
+
+.start-button {
+	text-align: center;
+}
+
+.breakdown-text-two {
+	text-align: justify;
+	direction: rtl;
+}
+.breakdown-text h2 {
+	padding-left: 0px;
+	margin-left: 0px;
+}
+.about-img {
+	padding-top: 15px;
+	padding-right: 0px!important;
+	margin-right: 0px!important;
+	text-align: right;
+	float: right;
+}
+
+.all-img {
+	text-align: left;
+	float: left;
+	margin-left: 0px!important;
+}
+
+.breakdown-text ul {
+	list-style-type: none;
+}
+
+.splash-container h1 {
+	font-size: 50px;
+	color: #523e86;
+	text-align: center;
+}
+
+.splash-container h1 span {
+	color: #ff9900;
+	font-family: 'Changa One', cursive;
+}
+
 .nav-logo img {
 	height: 100px;
 	width: 100px;
@@ -23,7 +71,9 @@ header {
 .nav-buttons {
 	margin-left: auto;
 	padding-right: 20px;
+	color: #ffffff;
 }
+
 .btn-reverse {
 	background: white !important;
 	color: #523e86 !important;
@@ -34,6 +84,7 @@ header {
 	bottom: 0;
 	position: absolute;
 	margin: auto;
+	text-align: center;
 }
 
 .index-card h1 {
@@ -52,16 +103,19 @@ header {
 
 .project-buttons ul {
 	list-style-type: none;
-	
+	padding-left: 0px;
 	display: inline-block;
 	z-index: 100;
+	text-align: center;
 }
 .project-buttons li {
-	margin-bottom: 5px;
-	margin-left: -40px;
+	margin-bottom: 10px;
+	margin-left: 9px;
 	display: inline-block;
 	bottom: 0;
 	z-index: 100;
+	padding-left: 0px;
+	text-align: center;
 }
 .container-fluid {
 	background: #efefef !important;
@@ -82,12 +136,14 @@ h1.all-projects {
 .new-project-button {
 	margin-left: auto;
 }
+
 .index-card {
 	background: white;
-	height: 300px;
+	height: 350px;
 	padding:10px;
 	box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.4);
 	margin-top: 10px;
+	margin-bottom: 10px;
 }
 .index-card h1 {
 	color: #523e86;
@@ -128,6 +184,13 @@ h1.all-projects {
 	position: relative;
 }
 
+.project-form h1 {
+	ont-size: 50px;
+	color: #523e86;
+	text-align: center;
+	font-weight: bold;
+}
+
 .table.no-border tr td, .table.no-border tr th {
   border-width: 0;
 }
@@ -157,8 +220,13 @@ h1.all-projects {
 }
 .delete-button {
 	text-align: right;
-	margin-left: 50px;
+	margin-left: 10px;
 }
+
+.edit-button {
+	margin-left: 10px;
+}
+
 .btn-primary {
 	background: #332164 !important;
 	border: #332164 !important;
@@ -171,6 +239,7 @@ h1.all-projects {
 	transition: all 0.2s;
 	height: 40px;
 	padding-top: 10px;
+	/*width: 120px;*/
 }
 
 .btn-primary:hover {

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   		end
   	end
   end
-  root 'projects#index'
+  root 'pages#splash'
   get 'pages/about'
   get 'pages/splash'
 end

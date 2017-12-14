@@ -1,1 +1,62 @@
-<h1>Splash Page</h1>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+</head>
+
+<div class="container-fluid">
+<div class="splash-container">
+	<h1>Get <span>Breakdown</span>. Don't have one.</h1>
+
+	<br>
+
+	<div class="row">
+		<div class="breakdown-text">			
+			<div class="col-md-2">
+				<%= image_tag("icons/about.png".html_safe, height: '120', width: '120', class: 'about-img') %>
+			</div>
+
+			<div class="col-md-8">
+				<h2>Breakdown is a task management app designed by students, for students. We know you have a lot to do, and we know you don't know where to start.</h2>
+			</div>		
+		</div><!--breakdown-text-->
+	</div><!--row-->
+
+	<br>
+
+	<div class="row">
+		<div class="breakdown-text-two">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<h2>We'll make it easy to break down your tasks into manageable chunks. Giant projects don't have to seem so intimidating anymore. You're ready to tackle them.&lrm;</h2>
+			</div>
+
+			<div class="col-md-2">
+				<%= image_tag("icons/all.png".html_safe, height: '120', width: '120', class: 'all-img') %>
+			</div>
+		</div><!--breakdown-text-two-->
+	</div><!--row-->
+
+	<br>
+
+	<div class="row">
+		<div class="breakdown-text">			
+			<div class="col-md-2">
+				<%= image_tag("icons/account.png".html_safe, height: '120', width: '120', class: 'about-img') %>
+			</div>
+
+			<div class="col-md-8">
+				<h2>Breakdown is user centered. It was designed by students, for students. It's easy to use, has a simple layout, and has features chosen by students.</h2>
+			</div>		
+		</div><!--breakdown-text-->
+	</div><!--row-->
+	
+<br>
+
+<div class="start-button">
+	<%= link_to "GET STARTED", new_project_url, class: 'btn btn-primary' %>
+</div>
+
+</div>
+</div>
+</html>
